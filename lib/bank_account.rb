@@ -1,37 +1,26 @@
 class BankAccount
-  attr_accessor :name
-  attr_writer :balance
+  attr_accessor :balance, :status #create a setter and getter for each 
+  attr_reader :name               # create a getter for name 
 
-  def initialize(name)
-     balance= 1000
-    @name = name
-
-    transactions = []
-    add_transaction(0)
+  def initialize(the_account_name)
+    @name = the_account_name # initialize name to the_account_name
+    @balance = 1000          # initialize balance to 1000
+    @status = "open"         # initialize status to "open"
   end
 
-  def display_balance=(balance)
-    @balance = 1000
-  end
-
-  def deposit(amount)
-    (@balance = @balance + amount) if (amount > 0)
+  def deposit(deposit_money)
+    @balance += deposit_money # depositing money on top of your balance 
   end
 
   def display_balance
-    balance = 0
-    @transactions.each do |transaction|
-      balance += transaction
-    end
-      return balance
-    end
-
-
-  def valid?
-
+    "Your balance is $#{@balance}." #display balance the total balance
   end
+
+  def valid? # set the validity of status to true or false 
+    @status == "open" && @balance > 0 ? true : false
+  end
+
   def close_account
-
+    @status = "closed" #close status
   end
-
 end
