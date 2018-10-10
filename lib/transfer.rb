@@ -1,6 +1,6 @@
 class Transfer
   # create a setter and a getter method for each
-  attr_accessor :transfer_amount, :sender, :receiver
+  attr_accessor :transfer_amount, :sender, :receiver, :status
 
   def initialize(sender, receiver, transfer_amount)
     @transfer_amount = transfer_amount
